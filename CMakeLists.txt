@@ -4,12 +4,13 @@ project(cloud-music VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 6.2 REQUIRED COMPONENTS Quick)
 
 
 qt_add_executable(cloud-music
-    main.cpp
+    main.cpp resource.qrc
 )
 
 #遍历所有qml文件
