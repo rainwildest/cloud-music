@@ -39,9 +39,5 @@
         <file>images/stop.png</file>
         <file>images/video.png</file>
         <file>images/video-white.png</file>
-        <file>qml/LayoutHeaderView.qml</file>
-        <file>qml/LayoutBottomView.qml</file>
-        <file>qml/PageHomeView.qml</file>
-        <file>qml/MusicIconButton.qml</file>
     </qresource>
 </RCC>

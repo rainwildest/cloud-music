@@ -31,10 +31,6 @@ Window {
         //        }
         PageHomeView {
             id: pageHomeView
-
-            Text {
-                text: '8888888888'
-            }
         }
 
         // 底部工具栏

@@ -24,6 +24,7 @@ qt_add_qml_module(cloud-music
     URI cloud-music
     VERSION 1.0
     QML_FILES ${qml_files}
+    SOURCES myimageproviter.h myimageproviter.cpp
 )
 
 set_target_properties(cloud-music PROPERTIES
