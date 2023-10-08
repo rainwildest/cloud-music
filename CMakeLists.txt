@@ -8,7 +8,6 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 6.2 REQUIRED COMPONENTS Quick)
 
-
 qt_add_executable(cloud-music
     main.cpp resource.qrc
 )
@@ -24,7 +23,10 @@ qt_add_qml_module(cloud-music
     URI cloud-music
     VERSION 1.0
     QML_FILES ${qml_files}
+    RESOURCE_PREFIX "/"
     SOURCES myimageproviter.h myimageproviter.cpp
+    SOURCES httputils.h httputils.cpp
+    SOURCES qreplytimeout.h qreplytimeout.cpp
 )
 
 set_target_properties(cloud-music PROPERTIES
@@ -38,6 +40,9 @@ set_target_properties(cloud-music PROPERTIES
 target_link_libraries(cloud-music
     PRIVATE Qt6::Quick
 )
+
+#导入exmaple的QML位置，不然import example有时候会爆红
+set(QML_IMPORT_PATH ${CMAKE_BINARY_DIR}/cloud-music/qml)
 
 install(TARGETS cloud-music
     BUNDLE DESTINATION .

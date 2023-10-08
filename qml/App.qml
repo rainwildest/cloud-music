@@ -4,6 +4,10 @@ import QtQuick.Window
 import QtQuick.Layouts
 import QtQuick.Controls.Fusion
 
+import MyUtils
+
+import "./components"
+
 Window {
     id: window
 
@@ -14,6 +18,39 @@ Window {
     height: m_WIN_HEIGHT
     visible: true
     title: qsTr("Hello World")
+
+    HttpUtils {
+        id: http
+    }
+
+    Component.onCompleted: {
+
+        //        textHttp()
+    }
+
+    function textHttp() {
+        function onHandle(e) {
+            console.log("jj: ", e)
+            http.onSuccess.disconnect(onHandle)
+        }
+
+        http.onSuccess.connect(onHandle)
+
+        const form = {
+            "2": 1,
+            "rr": ["1", "2"],
+            "ss": {
+                "2": 9
+            },
+            "hasdd": true,
+            "files": {
+                "field": "avatar",
+                "src": ["/Users/knight/Downloads/1.png", "/Users/knight/Downloads/雪中女孩.jpg"]
+            }
+        }
+        //upload
+        http.post("upload", form)
+    }
 
     ColumnLayout {
         anchors.fill: parent

@@ -3,6 +3,8 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls.Fusion
 
+import "../pages"
+
 RowLayout {
     property var qmlList: [{
             "icon": "recommend-white",
@@ -25,6 +27,8 @@ RowLayout {
             "value": "我喜欢的",
             "qml": "DetailFavoritePageView"
         }]
+
+    spacing: 0
 
     Frame {
         Layout.preferredWidth: 200
@@ -117,7 +121,7 @@ RowLayout {
 
                         const loader = repeater.itemAt(index)
                         loader.visible = true
-                        loader.source = `${qmlList[index].qml}.qml`
+                        loader.source = `../pages/${qmlList[index].qml}.qml`
                     }
                 }
             }
@@ -128,9 +132,7 @@ RowLayout {
 
             const loader = repeater.itemAt(0)
             loader.visible = true
-            loader.source = `${qmlList[0].qml}.qml`
-
-            console.log(`${qmlList[0].qml}.qml`)
+            loader.source = `../pages/${qmlList[0].qml}.qml`
         }
 
         //            Rectangle {
@@ -139,6 +141,7 @@ RowLayout {
         //            }
     }
 
+    //    Repeater 重复渲染
     Repeater {
         id: repeater
         model: qmlList.length

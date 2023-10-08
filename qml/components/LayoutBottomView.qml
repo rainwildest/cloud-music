@@ -8,9 +8,10 @@ Rectangle {
     height: 60
     color: "#00AAAA"
 
-    Component.onCompleted: () => {
-                               console.log("加载成功")
-                           }
+    Component.onCompleted: {
+        console.log("加载成功")
+    }
+
     RowLayout {
         anchors.fill: parent
         Item {
